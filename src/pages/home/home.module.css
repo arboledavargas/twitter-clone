@@ -1,0 +1,14 @@
+.container {
+	position: relative;
+	border-left: 1px solid rgba(211, 211, 211, 0.294);
+	border-right: 1px solid rgb(211, 211, 211, 0.294);
+}
+
+.nav {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	border-bottom: 1px solid rgb(211, 211, 211, 0.294);
+}

@@ -1,0 +1,42 @@
+.button {
+	border-radius: 10rem;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	padding: .5rem;
+	color: white;
+}
+
+.names{
+	overflow: hidden;
+	text-wrap: nowrap;
+}
+
+.button:hover {
+	background-color: rgba(250, 250, 250, 10%);
+	cursor: pointer;
+}
+
+.button img {
+	height: 2.5rem;
+	width: 2.5rem;
+	border-radius: 100%;
+}
+
+.name {
+	font-weight: bold;
+	font-size: 14px;
+	color: white;
+}
+
+.user_name {
+	font-size: 14px;
+	font-weight: normal;
+	color: rgba(250, 250, 250, 0.472);
+}
+
+.icon {
+	display: flex;
+	align-items: center;
+	height: 100%;
+}

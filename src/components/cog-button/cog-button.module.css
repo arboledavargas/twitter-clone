@@ -1,0 +1,24 @@
+.container {
+	height: 100%;
+	padding: .75rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.button {
+	border-radius: 100%;
+	background-color: transparent;
+	border: 0;
+	padding: .5rem;
+	transition: all 200ms ease-in-out;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.button:hover {
+	background-color: rgba(250, 250, 250, 0.085);
+	cursor: pointer;
+}

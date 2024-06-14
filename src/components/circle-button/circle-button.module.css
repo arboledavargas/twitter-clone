@@ -1,0 +1,14 @@
+.button {
+	height: 2rem;
+	width: 2rem;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: rgb(25, 142, 220);
+}
+
+.button:hover {
+	cursor: pointer;
+	background-color: rgba(25, 142, 220, 15%);
+}
