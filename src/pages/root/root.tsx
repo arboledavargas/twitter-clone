@@ -5,7 +5,7 @@ import { MainMenu } from "../../components/main-menu/main-menu";
 import styles from "./root.module.css";
 
 export function Root() {
-	const { isLoading } = useAuth0();
+	const { isLoading, isAuthenticated } = useAuth0();
 
 	if (isLoading) {
 		return <div>Loading...</div>;

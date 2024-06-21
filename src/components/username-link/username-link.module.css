@@ -1,0 +1,9 @@
+.usernamelink {
+	font-weight: bold;
+	color: white;
+}
+
+.usernamelink:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}

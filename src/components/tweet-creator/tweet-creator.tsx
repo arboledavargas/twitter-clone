@@ -12,13 +12,27 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { ActionButtonSmall } from "../action-button-small/action-button-small";
 import { useMutation } from "@apollo/client";
-
-import { CREATE_TWEET } from '../../graphql-queries'
+import { CREATE_TWEET } from '../../graphql-queries';
+import { useState } from 'react';
+import { Visibility } from "../../gql/graphql.ts";
 
 
 export function TweetCreator() {
 
-	const [  ] = useMutation(CREATE_TWEET);
+	const [ createTweet, { data, loading, error } ] = useMutation(CREATE_TWEET);
+
+	const [content, setContent] = useState<string>("");
+
+	const handleOnPost = () => {
+		createTweet({
+			variables: {
+				body: content,
+				visibility: Visibility['Public']
+			},
+		});
+
+		setContent("");
+	}
 
 	return (
 		<div className={styles.container}>
@@ -29,6 +43,10 @@ export function TweetCreator() {
 				<textarea
 					className={styles.textarea}
 					placeholder="What is happening ?!"
+					value={content}
+					onChange={(e) => {
+						setContent(e.target.value);
+					}}
 				></textarea>
 				<TextButton>Everyone can reply</TextButton>
 				<div className={styles.line_separator}></div>
@@ -49,9 +67,9 @@ export function TweetCreator() {
 						<FontAwesomeIcon icon={faLocationDot} />
 					</CircleButton>
 					<div className={styles.flex_space}></div>
-					<ActionButtonSmall></ActionButtonSmall>
+					<ActionButtonSmall onClick={handleOnPost}>Post</ActionButtonSmall>
 
-				</div>
+				</div> 
 			</div>
 		</div>
 	);

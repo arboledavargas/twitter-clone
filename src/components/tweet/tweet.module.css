@@ -1,0 +1,22 @@
+.tweet {
+	width: 100%;
+	padding: 1rem;
+	display: flex;
+
+	border-top: 1px solid rgba(211, 211, 211, 0.294);
+}
+
+.content {
+	flex-grow: 1;
+	padding-left: .5rem;
+}
+
+.header {
+	display: flex;
+	margin-bottom: .5rem;
+}
+
+.username {
+	font-weight: bold;
+	color: white;
+}
