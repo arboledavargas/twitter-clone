@@ -6,10 +6,6 @@ export const CREATE_TWEET = graphql(`
 			tweet {
 				id
 				body
-				author {
-					id
-					name
-				}
 				createdAt
 				retweetCount
 				likeCount

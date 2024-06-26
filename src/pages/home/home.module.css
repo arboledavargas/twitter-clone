@@ -12,3 +12,7 @@
 	display: flex;
 	border-bottom: 1px solid rgb(211, 211, 211, 0.294);
 }
+
+.content {
+		padding-top: 3.5rem;
+}

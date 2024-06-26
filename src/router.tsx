@@ -3,15 +3,23 @@ import { Root } from "./pages/root/root";
 import { Home } from "./pages/home/home";
 import { AuthProvider } from "./components/auth-provider/auth-provider";
 import {AuthenticationGuard } from "./components/authentication-guard/authentication-guard";
+import { ApolloClientProvider } from "./components/apollo-provider/apollo-provider";
+import { ForYou } from "./pages/foryou/foryou";
 
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <AuthProvider><AuthenticationGuard component={Root}></AuthenticationGuard></AuthProvider>,
+    element: <AuthProvider><AuthenticationGuard component={() => <ApolloClientProvider><Root></Root></ApolloClientProvider>}></AuthenticationGuard></AuthProvider>,
     children: [
       {
-        path: '/home',
-        element: <Home></Home>
+        path: 'home',
+        element: <Home></Home>,
+        children: [
+          {
+            path: 'foryou',
+            element: <ForYou></ForYou>
+          }
+        ]
       }
     ]
   }
