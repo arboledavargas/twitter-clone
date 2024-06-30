@@ -19,7 +19,9 @@ import { Visibility } from "../../gql/graphql.ts";
 
 export function TweetCreator() {
 
-	const [ createTweet, { data, loading, error } ] = useMutation(CREATE_TWEET);
+	const [ createTweet, { data, loading, error } ] = useMutation(CREATE_TWEET, {
+		refetchQueries: ['get_feed']
+	});
 
 	const [content, setContent] = useState<string>("");
 

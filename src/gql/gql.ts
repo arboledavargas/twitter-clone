@@ -15,7 +15,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
 const documents = {
     "\n\tmutation CreateTweet($body: String!, $visibility: Visibility!) {\n\t\tcreateTweet(tweet: { body: $body, visibility: $visibility }) {\n\t\t\ttweet {\n\t\t\t\tid\n\t\t\t\tbody\n\t\t\t\tcreatedAt\n\t\t\t\tretweetCount\n\t\t\t\tlikeCount\n\t\t\t\treplyCount\n\t\t\t\tvisibility\n\t\t\t\ttype\n\t\t\t}\n\t\t\tsuccessfull\n\t\t}\n\t}\n": types.CreateTweetDocument,
     "\n\tmutation CreateUser($uuid: String!) {\n\t\tcreateUser(uuid: $uuid) {\n\t\t\tsuccessfull\n\t\t}\n\t}\n\n": types.CreateUserDocument,
-    "\n\tquery Query($page: Int!, $pageSize: Int!) {\n\t\tfeed(page: $page, pageSize: $pageSize) {\n\t\t\tid\n\t\t\tbody\n\t\t\tcreatedAt\n\t\t\tretweetCount\n\t\t\tlikeCount\n\t\t\treplyCount\n\t\t\tvisibility\n\t\t\ttype\n\t\t}\n\t}\n": types.QueryDocument,
+    "\n\tquery get_feed($take: Int!, $from: String) {\n\t\tfeed(take: $take, from: $from) {\n\t\t\tedges {\n\t\t\t\tcursor\n\t\t\t\tnode {\n\t\t\t\t\tid\n\t\t\t\t\tbody\n\t\t\t\t\tauthor {\n\t\t\t\t\t\tname\n\t\t\t\t\t\tid\n\t\t\t\t\t\tavatarUrl\n\t\t\t\t\t}\n\t\t\t\t\tcreatedAt\n\t\t\t\t\tretweetCount\n\t\t\t\t\tlikeCount\n\t\t\t\t\treplyCount\n\t\t\t\t\tvisibility\n\t\t\t\t\ttype\n\t\t\t\t}\n\t\t\t}\n\t\t\tpageInfo {\n\t\t\t\tendCursor\n\t\t\t\thasNextPage\n\t\t\t\thasPreviousPage\n\t\t\t}\n\t\t}\n\t}\n": types.Get_FeedDocument,
 };
 
 /**
@@ -43,7 +43,7 @@ export function graphql(source: "\n\tmutation CreateUser($uuid: String!) {\n\t\t
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n\tquery Query($page: Int!, $pageSize: Int!) {\n\t\tfeed(page: $page, pageSize: $pageSize) {\n\t\t\tid\n\t\t\tbody\n\t\t\tcreatedAt\n\t\t\tretweetCount\n\t\t\tlikeCount\n\t\t\treplyCount\n\t\t\tvisibility\n\t\t\ttype\n\t\t}\n\t}\n"): (typeof documents)["\n\tquery Query($page: Int!, $pageSize: Int!) {\n\t\tfeed(page: $page, pageSize: $pageSize) {\n\t\t\tid\n\t\t\tbody\n\t\t\tcreatedAt\n\t\t\tretweetCount\n\t\t\tlikeCount\n\t\t\treplyCount\n\t\t\tvisibility\n\t\t\ttype\n\t\t}\n\t}\n"];
+export function graphql(source: "\n\tquery get_feed($take: Int!, $from: String) {\n\t\tfeed(take: $take, from: $from) {\n\t\t\tedges {\n\t\t\t\tcursor\n\t\t\t\tnode {\n\t\t\t\t\tid\n\t\t\t\t\tbody\n\t\t\t\t\tauthor {\n\t\t\t\t\t\tname\n\t\t\t\t\t\tid\n\t\t\t\t\t\tavatarUrl\n\t\t\t\t\t}\n\t\t\t\t\tcreatedAt\n\t\t\t\t\tretweetCount\n\t\t\t\t\tlikeCount\n\t\t\t\t\treplyCount\n\t\t\t\t\tvisibility\n\t\t\t\t\ttype\n\t\t\t\t}\n\t\t\t}\n\t\t\tpageInfo {\n\t\t\t\tendCursor\n\t\t\t\thasNextPage\n\t\t\t\thasPreviousPage\n\t\t\t}\n\t\t}\n\t}\n"): (typeof documents)["\n\tquery get_feed($take: Int!, $from: String) {\n\t\tfeed(take: $take, from: $from) {\n\t\t\tedges {\n\t\t\t\tcursor\n\t\t\t\tnode {\n\t\t\t\t\tid\n\t\t\t\t\tbody\n\t\t\t\t\tauthor {\n\t\t\t\t\t\tname\n\t\t\t\t\t\tid\n\t\t\t\t\t\tavatarUrl\n\t\t\t\t\t}\n\t\t\t\t\tcreatedAt\n\t\t\t\t\tretweetCount\n\t\t\t\t\tlikeCount\n\t\t\t\t\treplyCount\n\t\t\t\t\tvisibility\n\t\t\t\t\ttype\n\t\t\t\t}\n\t\t\t}\n\t\t\tpageInfo {\n\t\t\t\tendCursor\n\t\t\t\thasNextPage\n\t\t\t\thasPreviousPage\n\t\t\t}\n\t\t}\n\t}\n"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};

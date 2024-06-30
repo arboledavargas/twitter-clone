@@ -3,7 +3,16 @@ import { GET_FEED } from "../../graphql-queries";
 import { Tweet } from "../../components/tweet/tweet";
 
 export function ForYou(){
-	const { data , loading, error } = useQuery(GET_FEED);
+
+	const cursor = 'dsfds';
+	const take = 10;
+
+	const { data , loading, error } = useQuery(GET_FEED, {
+		variables: { 
+			take: take,
+			from: cursor
+		}
+	});
 
 	if(loading){
 		return <p>Loading</p>
@@ -13,7 +22,7 @@ export function ForYou(){
 		return <p>Error</p>
 	}
 
-	const tweetList = data?.feed.map(tweet => <Tweet></Tweet>)
+	const tweetList = data?.feed.edges.map(tweet => <Tweet data={tweet.node} key={tweet.cursor}></Tweet>)
 
 	return <>
 	 {tweetList}
