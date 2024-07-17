@@ -1,5 +1,5 @@
 import styles from "./action-button.module.css";
 
-export function ActionButton(){
-	return <button className={styles.button}>Post</button>
+export function ActionButton({children}:{children: React.ReactNode}){
+	return <button className={styles.button}>{children}</button>
 }

@@ -1,0 +1,21 @@
+.textinput {
+	position: relative;
+}
+
+.textinput input{
+	border: 1px solid rgba(169, 169, 169, 0.514);
+	border-radius: 5px;
+	padding: 2rem 2rem 0.5rem 1rem;
+	margin: 1px;
+	width: 100%;
+}
+
+.textinput::after {
+	content: "Username";
+	display: block;
+	position: absolute;
+	top: .75rem;
+	left: 1rem;
+	font-size: .8rem;
+	color: darkgray;
+}

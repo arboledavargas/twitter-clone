@@ -100,7 +100,7 @@ meter {
     all: revert;
 }
 
-html, body {
+html, body, #root {
 	height: 100vh;
 	padding: 0;
 	margin: 0;

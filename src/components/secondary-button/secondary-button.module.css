@@ -1,14 +1,13 @@
 .button {
-	background-color: rgb(29, 155, 240);
-	color: white;
+	color: rgb(29, 155, 240);
 	font-weight: bold;
-	border: 0;
+	border: 1px solid darkgray;
 	border-radius: 5rem;
 	text-align: center;
 	height: 2.5rem;
 }
 
 .button:hover {
-	background-color: rgb(25, 142, 220);
+	background-color: rgba(25, 142, 220, 0.19);
 	cursor: pointer;
 }

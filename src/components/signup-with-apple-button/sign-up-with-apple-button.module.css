@@ -1,0 +1,15 @@
+.button {
+	color: black;
+	background-color: white;
+	border-radius: 3rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 300px;
+	height: 2.5rem;
+	gap: .75rem;
+}
+
+.button:hover {
+	cursor: pointer;
+}

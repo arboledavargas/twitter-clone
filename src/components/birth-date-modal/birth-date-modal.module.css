@@ -1,0 +1,48 @@
+.modalContainer {
+	display: grid;
+	place-items: center;
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+	background-color: rgba(25, 142, 220, 0.211);
+}
+
+.modal {
+	background: black;
+	border-radius: 1rem;
+	padding: 1rem 4rem;
+	width: min-content;
+}
+
+.modalHeader {
+	display: flex;
+	justify-content: center;
+}
+
+.modalContent {
+	display: flex;
+	flex-direction: column;
+	margin-top: 2rem;
+}
+
+.modalIcon {
+	font-size: 1.5rem;
+}
+
+.modalTitle {
+	font-size: 2rem;
+	font-weight: bold;
+	margin-bottom: 1rem;
+	white-space: nowrap;
+}
+
+.modalSubtitle {
+	color: darkgray;
+	margin-bottom: 3rem;
+}
+
+.modalTextDescription {
+	color: darkgray;
+	margin-bottom: 5rem;
+	margin-top: 1rem;
+}

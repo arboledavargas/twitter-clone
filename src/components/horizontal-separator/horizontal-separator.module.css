@@ -1,0 +1,18 @@
+.separator {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: .5rem;
+	margin-left: -4px;
+	margin-right: -4px;
+}
+
+.line {
+	height: 1px;
+	background-color: rgb(106, 106, 106);
+	flex-grow: 1;
+}
+
+.text {
+	color: white;
+}

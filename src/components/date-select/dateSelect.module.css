@@ -1,0 +1,37 @@
+.date_select {
+	display: flex;
+	gap: .5rem;
+}
+
+.date_select select {
+	border: 1px solid rgba(169, 169, 169, 0.514);
+	border-radius: 5px;
+	padding: 2rem 2rem 0.5rem 1rem;
+	margin: 1px;
+}
+
+.select_button {
+	display: inline-flex;
+	flex-direction: column;
+	position: relative;
+}
+
+.date_select label {
+	font-size: .8rem;
+	color: rgba(169, 169, 169, 0.514);
+	transform: translateY(.5rem) translateX(.5rem);
+	position: fixed;
+}
+
+.date_select .icon {
+	position: absolute;
+	right: 1rem;
+	top: calc(50% - .5rem);
+	pointer-events: none;
+}
+
+.date_select select:active, .date_select select:hover {
+	border: 2px solid rgb(29, 155, 240);
+	cursor: pointer;
+	margin: 0px;
+}
