@@ -8,25 +8,43 @@ import { ActionButtonSmall } from "../../components/action-button-small/action-b
 import { SecondaryButton } from "../../components/secondary-button/secondary-button";
 import { useAuth0 } from '@auth0/auth0-react';
 import { useNavigate } from "react-router-dom";
-import { HandleModal } from "../../components/handle-modal/handle-modal";
 import { BirthDateModal } from "../../components/birth-date-modal/birth-date-modal";
 import { useState } from "react";
-import { useLazyQuery } from "@apollo/client";
-import { GET_CURRENT_USER } from "../../graphql-queries/get-current-user.query";
+import { useLazyQuery, useMutation } from "@apollo/client";
+import { GET_CURRENT_USER, CREATE_USER } from "../../graphql-queries";
 
 export function Login(){
 	const [ getCurrentUser, { called, loading, data } ] = useLazyQuery(GET_CURRENT_USER);
-	const { loginWithPopup } = useAuth0();
+	const [createUser,  { called: createUserCalled, loading: createUserLoading, data: createUserData }] = useMutation(CREATE_USER);
+	const { loginWithPopup, user } = useAuth0();
 	const navigate  = useNavigate();
-	const [ isNewUser, setIsNewUser ] = useState<boolean>(false);
+	const [ isNewUser, setIsNewUser ] = useState<boolean>(true);
 
+	function handlerBirthModalComplete(birthDate: Date){
+
+		if(user){
+			createUser({
+				variables:{
+					user: {
+						avatarUrl: user.picture,
+						birthDate: birthDate.toISOString(),
+						email: user.email ?? '',
+						name: user.name ?? '',
+						location: user.zoneinfo
+					}
+				}
+			}).then(() => {
+				navigate("/home/foryou");
+			})
+		}
+	}
 
 	function signUpWithGoogleHandle(){
 		loginWithPopup({ authorizationParams: {
 			connection: 'google-oauth2',
 		} }).then(() => {
 			getCurrentUser().then(data => {
-				if(!data.data){
+				if(!data.data?.currentUser){
 					setIsNewUser(true);
 				} else {
 					navigate("/home/foryou");
@@ -36,7 +54,7 @@ export function Login(){
 	}
 
 	return <div className={styles.login_container}>
-		{isNewUser && <BirthDateModal/>}
+		{isNewUser && <BirthDateModal onComplete={handlerBirthModalComplete}/>}
 		<div className={styles.main_icon_container}>
 			<FontAwesomeIcon icon={faXTwitter} className={styles.main_icon}/>
 		</div>
