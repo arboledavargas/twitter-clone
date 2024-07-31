@@ -1,0 +1,37 @@
+.action_button {
+	color: white;
+	display: flex;
+	align-items: center;
+	height: 2.5rem;
+}
+
+.action_button:hover {
+	color: rgba(25, 142, 220);
+	cursor: pointer;
+}
+
+.action_button .text {
+	font-size: 13px;
+}
+
+.icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 100%;
+	position: relative;
+	padding: .5rem;
+}
+
+.icon:hover {
+	cursor: pointer;
+}
+
+.action_button:hover .icon::after {
+	content: "";
+	height: 2.5rem;
+	width: 2.5rem;
+	background-color:rgba(25, 142, 220, 50%);
+	position: absolute;
+	border-radius: 100%;
+}

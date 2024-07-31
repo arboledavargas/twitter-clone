@@ -2,7 +2,6 @@
 	width: 100%;
 	padding: 1rem;
 	display: flex;
-
 	border-top: 1px solid rgba(211, 211, 211, 0.294);
 }
 
@@ -13,10 +12,25 @@
 
 .header {
 	display: flex;
+	gap: 1rem;
 	margin-bottom: .5rem;
 }
 
-.username {
-	font-weight: bold;
+.username, .time, .dot {
+	color: darkgray;
+}
+
+.dot {
+	font-weight: bolder;
+}
+
+.body {
 	color: white;
+}
+
+
+.footer{
+	display: flex;
+	padding-block: .25rem;
+	justify-content: space-between;
 }

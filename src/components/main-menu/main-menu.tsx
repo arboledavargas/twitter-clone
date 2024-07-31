@@ -16,8 +16,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import { ActionButton } from "../action-button/action-button";
 import { AccountButton } from "../account-button/account-button";
-
+import { useQuery } from "@apollo/client";
+import { GET_CURRENT_USER } from "../../graphql-queries/get-current-user.query";
 export function MainMenu() {
+
+	const { data: currentUser, loading, error } = useQuery(GET_CURRENT_USER)
+
+	if(loading){
+		return null
+	}
+
 	return (
 		<nav className={styles.side}>
 			<ul className={styles.menu}>
@@ -66,8 +74,8 @@ export function MainMenu() {
 					<span>More</span>
 				</MenuButton>
 			</ul>
-			<ActionButton></ActionButton>
-			<AccountButton></AccountButton>
+			<ActionButton onClick={() => {}}>Post</ActionButton>
+			<AccountButton user={currentUser?.currentUser}></AccountButton>
 		</nav>
 	);
 }

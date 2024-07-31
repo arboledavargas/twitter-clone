@@ -12,6 +12,7 @@ export const GET_FEED = graphql(`
 						name
 						id
 						avatarUrl
+						handle
 					}
 					createdAt
 					retweetCount

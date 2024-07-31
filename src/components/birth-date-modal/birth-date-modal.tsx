@@ -11,7 +11,6 @@ export function BirthDateModal({ onComplete }:{ onComplete: (birthDate: Date) =>
 
 	function onCompleteHandler(){
 		if(birthDate) {
-			console.log('onCompleteHandler', birthDate)
 			onComplete(birthDate);
 		}
 	}

@@ -14,11 +14,11 @@ import { useLazyQuery, useMutation } from "@apollo/client";
 import { GET_CURRENT_USER, CREATE_USER } from "../../graphql-queries";
 
 export function Login(){
-	const [ getCurrentUser, { called, loading, data } ] = useLazyQuery(GET_CURRENT_USER);
-	const [createUser,  { called: createUserCalled, loading: createUserLoading, data: createUserData }] = useMutation(CREATE_USER);
+	const [ getCurrentUser ] = useLazyQuery(GET_CURRENT_USER);
+	const [ createUser ] = useMutation(CREATE_USER);
 	const { loginWithPopup, user } = useAuth0();
 	const navigate  = useNavigate();
-	const [ isNewUser, setIsNewUser ] = useState<boolean>(true);
+	const [ isNewUser, setIsNewUser ] = useState<boolean>(false);
 
 	function handlerBirthModalComplete(birthDate: Date){
 
